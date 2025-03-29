@@ -1,0 +1,20 @@
+.upBtn{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    background-color: var(--color-main);
+    color: white;
+    border: none;
+    border-radius:10px;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.upBtn:hover{
+    background-color:rgba(10, 173, 10, 0.8); ;
+}

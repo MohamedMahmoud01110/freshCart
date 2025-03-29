@@ -1,0 +1,9 @@
+@media all and (max-width: 650px) {
+ .button-container button{
+    font-size: 0.65rem;
+    margin: 0;
+  }
+
+ }
+
+

@@ -1,0 +1,17 @@
+<div class="grid grid-cols-12 gap-5 my-5 border-b border-main py-3">
+  <div class="col-span-1 ">
+    <img [src]="product.product.imageCover" alt="product image" class="w-full">
+  </div>
+  <div class="col-span-11 flex justify-between ">
+    <div>
+      <h4 class="font-bold text-xl">{{product.product.title}}</h4>
+      <span class="text-main block my-3">Price : {{product.price}}EGP</span>
+        <button (click)="onRemoveProduct()" class="cursor-pointer"><i class="fa fa-trash-can text-main me-2"></i>Remove</button>
+    </div>
+    <div class=" flex items-center justify-center rounded-full w-24 h-24">
+      <button (click)="onUpdateQuantity(product.count + 1)" class="border border-main px-3 py-2 rounded hover:bg-main hover:text-white cursor-pointer transition duration-300">+</button>
+      <span class="mx-3"> {{product.count}}</span>
+      <button (click)="onUpdateQuantity(product.count - 1)" class="border border-main px-3 py-2 rounded hover:bg-main hover:text-white cursor-pointer transition duration-300">-</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,88 @@
+<nav class="bg-light border-gray-200 dark:bg-black">
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+      <a routerLink="/home" class="flex items-center space-x-3 ">
+          <img src=" images/freshcart-logo.svg" class="h-8" alt="FreshCart Logo" />
+          <!-- <img [src]="isDarkMode ? 'images/dark-theme-logo.jpg' : 'images/freshcart-logo.svg'"
+          class="h-8"
+          alt="FreshCart Logo" /> -->
+      </a>
+      <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center cursor-pointer text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
+          <span class="sr-only">Open main menu</span>
+          <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+          </svg>
+      </button>
+      <div class="hidden w-full md:flex grow justify-between md:w-auto mx-10" id="navbar-default">
+      @if(layout === 'auth'){
+        <ul class="ms-auto font-medium flex flex-col p-4 md:p-0 mt-4 border  rounded-lg md:flex-row md:space-x-8  md:mt-0 md:border-0 md: dark:bg-gray-800 md:dark:bg-black  border-gray-200">
+          <li>
+            <a routerLink="/login" routerLinkActive="text-main" class="block py-2 px-3 text-black rounded-sm hover:bg-gray-200 md:hover:bg-transparent md:border-0 md:p-0 dark:text-white  dark:hover:bg-black  md:dark:hover:bg-transparent hover:text-main" aria-current="page">Login</a>
+          </li>
+          <li>
+            <a routerLink="/register" routerLinkActive="text-main  dark:text-main" class="block py-2 px-3 text-black rounded-sm hover:bg-gray-200 md:hover:bg-transparent md:border-0 md:p-0 dark:text-white   dark:hover:bg-black  md:dark:hover:bg-transparent hover:text-main">Register</a>
+          </li>
+        </ul>
+      }
+      @else {
+        <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border  rounded-lg md:flex-row md:space-x-8  md:mt-0 md:border-0  dark:bg-gray-800 md:dark:bg-black dark:border-gray-700 border-gray-200">
+          <li>
+            <a routerLink="/home" routerLinkActive="text-main" class="block py-2 px-3  rounded-sm text-black md:hover:bg-transparent hover:bg-gray-200 md:border-0 md:p-0 dark:text-white   dark:hover:bg-black md:dark:hover:bg-transparent hover:text-main" aria-current="page">{{'navbar.home'|translate }}</a>
+          </li>
+          <li>
+            <a routerLink="/products" routerLinkActive="text-main" class="block py-2 px-3 text-black rounded-sm hover:bg-gray-200 md:hover:bg-transparent md:border-0 md:p-0 dark:text-white  dark:hover:bg-black  md:dark:hover:bg-transparent hover:text-main dark:hover:text-main"> {{'navbar.products'|translate}} </a>
+          </li>
+          <li>
+            <a routerLink="/categories" routerLinkActive="text-main" class="block py-2 px-3 text-black rounded-sm hover:bg-gray-200 md:hover:bg-transparent md:border-0 md:p-0 dark:text-white  dark:hover:bg-black  md:dark:hover:bg-transparent hover:text-main dark:hover:text-main">{{'navbar.categories'|translate}}</a>
+          </li>
+          <li>
+            <a routerLink="/brands" routerLinkActive="text-main" class="block py-2 px-3 text-black rounded-sm hover:bg-gray-200 md:hover:bg-transparent md:border-0 md:p-0 dark:text-white  dark:hover:bg-black  md:dark:hover:bg-transparent hover:text-main dark:hover:text-main">{{'navbar.brands'|translate}}</a>
+          </li>
+
+        </ul>
+        <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border  rounded-lg md:flex-row md:space-x-8  md:mt-0 md:border-0 md: dark:bg-gray-800 md:dark:dark:bg-black dark:border-gray-700 border-gray-200 ">
+          <li class="">
+            <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar" class="cursor-pointer flex items-center justify-between w-full py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-main md:p-0 md:w-auto dark:text-white md:dark:hover:text-main dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent ">
+              <i class="fa-solid fa-globe"></i>
+              @if(lang === 'en') {
+                <span class="ms-1 font-bold">EN</span>
+              }
+              @else{
+                <span class="ms-1 font-bold">AR</span>
+
+              }
+
+
+
+              <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+  </svg></button>
+            <!-- Dropdown menu -->
+            <div id="dropdownNavbar" class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-gray-700 dark:divide-gray-600">
+                <ul class="py-2 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
+                  <li>
+                    <a (click)="selectLang('en')" class="cursor-pointer block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{{ 'navbar.en'|translate}}</a>
+                  </li>
+                  <li>
+                    <a (click)="selectLang('ar')" class="cursor-pointer block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{{ 'navbar.ar'|translate}}</a>
+                  </li>
+
+                </ul>
+
+            </div>
+        </li>
+
+          <li>
+            <a routerLink="/cart" routerLinkActive="text-main" class="relative block py-2 px-3 text-black rounded-sm hover:bg-gray-200 md:hover:bg-transparent md:border-0 md:p-0 dark:text-white  dark:hover:bg-black  md:dark:hover:bg-transparent hover:text-main dark:hover:text-main">
+              {{'navbar.cart'|translate}}
+            <i class="fa fa-cart-shopping"></i>
+            <div class="navCounter absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-main border-2 border-light rounded-full -top-3.5 dark:border-gray-900 navCounter ">{{navbarCounter()}}</div>
+            </a>
+          </li>
+          <li>
+            <a (click)="logOut()" class=" cursor-pointer block py-2 px-3 text-black rounded-sm hover:bg-gray-200 md:hover:bg-transparent md:border-0  md:p-0 dark:text-white  dark:hover:bg-black  md:dark:hover:bg-transparent hover:text-main dark:hover:text-main">{{'navbar.logout'|translate}}</a>
+          </li>
+        </ul>
+      }
+      </div>
+    </div>
+  </nav>
