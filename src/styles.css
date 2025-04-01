@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@300&display=swap');
 @import "tailwindcss";
 @source "../node_modules/flowbite";
-/* You can add global styles to this file, and also import other style files */
 
 @theme{
   --color-main :#0aad0a;
@@ -38,21 +37,7 @@ body{
   background-color: var(--color-light);
 }
 
-/* .product .btn
-{
-    transition: transform 1s , opacity 1s;
-    transform: translateY(100%);
-    opacity: 0;
-}
-.product:hover .btn
-{
-    opacity: 1;
-    transform: translateY(0%);
 
-} */
-
-
-/* position */
 .toast-center-center {
   top: 50%;
   left: 50%;
@@ -118,7 +103,6 @@ body{
   font-weight: bold;
   color: #FFFFFF;
   text-shadow: 0 1px 0 #ffffff;
-  /* opacity: 0.8; */
 }
 .toast-close-button:hover,
 .toast-close-button:focus {
@@ -208,7 +192,6 @@ button.toast-close-button {
   background-color: #000000;
   opacity: 0.4;
 }
-/* Responsive Design */
 @media all and (max-width: 240px) {
   .toast-container .ngx-toastr.div {
     padding: 8px 8px 8px 50px;
