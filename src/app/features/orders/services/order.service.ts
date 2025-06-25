@@ -14,17 +14,16 @@ export class OrderService {
 
   createCheckOut(cartId : string | null, shippingAddress: {details : string, phone : string, city : string}): Observable<any> {
     const returnUrl = "?url=http://localhost:4200";
-    return this.http.post(environment.baseUrl + 'orders/checkout-session/'+ cartId + returnUrl,
+    const token = this.auth.getToken();
+    return this.http.post(
+      environment.baseUrl + 'orders/checkout-session/'+ cartId + returnUrl,
+      { shippingAddress },
       {
-        shippingAddress
-      },
-      {
-        headers: {
-          token: this.auth.getToken()!
-        }
-      })
-    }
+        headers: token ? { token } : {}
+      }
+    );
   }
+}
 
 
 
