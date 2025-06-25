@@ -6,13 +6,12 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
   const auth = inject(AuthService);
 
   if (req.url.includes('cart') || req.url.includes('orders')) {
-    req = req.clone({
-      setHeaders: {
-        // token: auth.getToken()!
-        token: auth.getToken()|| ''
-      }
-    });
-
+    const token = auth.getToken();
+    if (token) {
+      req = req.clone({
+        setHeaders: { token }
+      });
+    }
   }
   return next(req);
 };
